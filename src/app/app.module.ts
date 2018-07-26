@@ -9,6 +9,7 @@ import { AuthloggedProvider } from '../providers/authlogged/authlogged';
 import { LoginProvider } from '../providers/login/login';
 
 import { HttpClientModule } from "@angular/common/http";
+import { ErroralertProvider } from '../providers/erroralert/erroralert';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { HttpClientModule } from "@angular/common/http";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthloggedProvider,
-    LoginProvider
+    LoginProvider,
+    ErroralertProvider
   ]
 })
 export class AppModule {}

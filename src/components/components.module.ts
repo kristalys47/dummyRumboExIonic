@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { LoginComponent } from './login/login';
 import {IonicModule} from "ionic-angular";
+import { ErroralertComponent } from './erroralert/erroralert';
 @NgModule({
-	declarations: [LoginComponent],
+	declarations: [ErroralertComponent],
 	imports: [IonicModule],
-	exports: [LoginComponent]
+	exports: [ErroralertComponent]
 })
 export class ComponentsModule {}

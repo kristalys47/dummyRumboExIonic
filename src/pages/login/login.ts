@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {LoginProvider} from "../../providers/login/login";
 import { User } from "../../user";
+import {ErroralertProvider} from "../../providers/erroralert/erroralert";
 
 /**
  * Generated class for the LoginPage page.
@@ -19,7 +20,8 @@ export class LoginPage {
   user: User = new User();
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: LoginProvider) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: LoginProvider, private error: ErroralertProvider) {
   }
 
   ionViewDidLoad() {
@@ -29,6 +31,7 @@ export class LoginPage {
   check() {
     this.auth.login(this.user)
     .then((user) => {
+      this.error.hidemessage();
       sessionStorage.setItem('userid', user.result.userid);
       sessionStorage.setItem('username', user.result.username);
       sessionStorage.setItem('email', user.result.email);
@@ -46,8 +49,8 @@ export class LoginPage {
     })
     .catch((err) => {
       console.log(err);
+      this.error.displaymessage("Incorrect credentials. Try again!");
     });
-    //console.log(this.username, '   ',this.password);
   }
 
 
